@@ -619,7 +619,7 @@ app.get('/about', async(req, res) => {
 
 app.get('/updates', async(req, res) => {
     try {
-        const url = `https://raw.githubusercontent.com/SaturnMusic/PC/refs/heads/main/package.json`;
+        const url = `https://raw.githubusercontent.com/Sheathed/Saturn-PC/refs/heads/main/package.json`;
         let response = await axios.get(url);
         //New version
         if (compareVersions(response.data.version, packageJson.version) >= 1) {

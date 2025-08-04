@@ -20,7 +20,7 @@
         "lcross-build": "cd app && npm i && cd client && npm i && export NODE_OPTIONS=--openssl-legacy-provider && npm run build && cd .. && cd .. && npm run cross-dist"
     },
     "license": "GPL-3.0-or-later",
-    "homepage": "https://github.com/SaturnMusic",
+    "homepage": "https://github.com/Sheathed",
     "devDependencies": {
         "electron": "19.1.9",
         "electron-builder": "^24.12.0"
@@ -78,7 +78,7 @@
             },
             "executableName": "saturn",
             "icon": "build/iconset",
-            "maintainer": "github.com/SaturnMusic",
+            "maintainer": "github.com/Sheathed",
             "mimeTypes": [
                 "application/http"
             ],

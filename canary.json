@@ -52,7 +52,7 @@
         },
         "executableName": "saturn-canary",
         "icon": "build/canary-iconset",
-        "maintainer": "github.com/SaturnMusic",
+        "maintainer": "github.com/Sheathed",
         "mimeTypes": [
             "application/http"
         ],

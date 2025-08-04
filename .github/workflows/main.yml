@@ -100,7 +100,7 @@ jobs:
             ${{ github.actor }} added a new commit!
             ${{ github.event.commits[0].message }}
             
-            Download: https://nightly.link/SaturnMusic/PC/workflows/main/main?preview
+            Download: https://nightly.link/Sheathed/Saturn-PC/workflows/main/main?preview
             Changelog: https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
             Please star the repository <3

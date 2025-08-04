@@ -1,5 +1,5 @@
-[![Node.js CI](https://github.com/SaturnMusic/PC/actions/workflows/main.yml/badge.svg)](https://github.com/SaturnMusic/PC/actions/workflows/main.yml)
-<sup> | [download](https://nightly.link/SaturnMusic/PC/workflows/main/main?preview) </sup>
+[![Node.js CI](https://github.com/Sheathed/Saturn-PC/actions/workflows/main.yml/badge.svg)](https://github.com/Sheathed/Saturn-PC/actions/workflows/main.yml)
+<sup> | [download](https://nightly.link/Sheathed/Saturn-PC/workflows/main/main?preview) </sup>
 
 # Saturn
 ## Freezer Reborn
@@ -10,7 +10,7 @@
 https://fund.saturn.kim/
 
 # Featuring:
-- [Listening Parties (Clubs)](https://clubs.saturn.kim)
+- Listening Parties (Clubs)
 - FLAC & MP3 320 support
 - BYO Last.fm Integration (Safer solution!)
 - Discord Listen Together & RPC
@@ -66,8 +66,5 @@ npm run dist
 - discord: https://discord.com/invite/fttYFSHPCQ
 - telegram: https://t.me/SaturnReleases
 
-# Download from Releases
-https://github.com/SaturnMusic/PC/releases
-
 # Mobile Version
-https://github.com/SaturnMusic/mobile
+https://github.com/Sheathed/Saturn-Mobile

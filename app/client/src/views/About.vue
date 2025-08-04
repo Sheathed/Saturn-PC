@@ -6,7 +6,7 @@
         v{{data.version}}
     </div>
     <br>
-    <div v-if='update' class='text-center text-h6 font-weight-bold mb-4' @click='openUrl("https://nightly.link/SaturnMusic/PC/workflows/main/main?preview")'>
+    <div v-if='update' class='text-center text-h6 font-weight-bold mb-4' @click='openUrl("https://nightly.link/Sheathed/Saturn-PC/workflows/main/main?preview")'>
         {{$t("New update available:")}} {{update.version}}
         <v-btn text color='primary' outlined class='mx-2'>{{$t("Visit website")}}</v-btn>
     </div>
