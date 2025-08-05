@@ -10,7 +10,6 @@
 https://fund.saturn.kim/
 
 # Featuring:
-- Listening Parties (Clubs)
 - FLAC & MP3 320 support
 - BYO Last.fm Integration (Safer solution!)
 - Discord Listen Together & RPC
@@ -21,19 +20,28 @@ https://fund.saturn.kim/
 
 ### You can download Saturn right away although it is highly advised to build it yourself, customized to your own liking.
 
+## Running with Docker
+
+From the project root, run:
+```sh
+docker compose up --build
+```
+This will both build & start Saturn on port 10069
+##### It is advised for you to rename the .env.example file in /app to .env and uncomment the line in compose.yml if you want to be logged in automatically.
+
 ## Building
 
 Requirements: NodeJS 17+  
 
 You can build binary using npm script:
-```
+```sh
 npm i 
 npm run build
 ```
 
 Or manually:
 
-```
+```sh
 npm i
 cd app
 npm i 
@@ -41,7 +49,7 @@ npm i
 
 Frontend:
 
-```
+```sh
 cd client
 npm i 
 npm run build
@@ -50,19 +58,18 @@ cd ../..
 
 Then you can run server-only using, default port: `10069`: 
 
-```
+```sh
 cd app
 node main.js
 ```
 
 You can build binaries using:
 
-```
+```sh
 npm run dist
 ```
 
 # Links
-- website: https://saturn.kim
 - discord: https://discord.com/invite/fttYFSHPCQ
 - telegram: https://t.me/SaturnReleases
 

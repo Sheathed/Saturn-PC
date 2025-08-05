@@ -9,3 +9,4 @@ translations.zip
 package-lock.json
 app/package-lock.json
 app/client/package-lock.json
+app/.env

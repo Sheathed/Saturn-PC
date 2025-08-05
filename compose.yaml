@@ -1,0 +1,18 @@
+services:
+  saturn:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: saturn
+    restart: unless-stopped
+    init: true
+    ports:
+      - "10069:10069"
+    # Uncomment the next line & rename .env.example to .env if you want to run this with docker and automatically log in
+    # env_file: ./app/.env
+    networks:
+      - saturn-net
+
+networks:
+  saturn-net:
+    driver: bridge
