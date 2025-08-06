@@ -11,13 +11,12 @@ on:
       - 'README.md'
 
 env:
-    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
 jobs:
 
   windows:
     name: Build for Windows
-
     runs-on: windows-latest
 
     steps:
@@ -43,11 +42,13 @@ jobs:
   linux:
     name: Build for Linux
     needs: windows
-
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
@@ -66,11 +67,13 @@ jobs:
   osx:
     name: Build for MacOS
     needs: windows
-
     runs-on: macos-13
 
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: main
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
@@ -87,7 +90,6 @@ jobs:
   notify:
     name: Notify
     needs: [osx, linux]
-
     runs-on: ubuntu-latest
     
     steps:
@@ -98,7 +100,6 @@ jobs:
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
             ${{ github.actor }} added a new commit!
-            ${{ github.event.commits[0].message }}
             
             Download: https://nightly.link/Sheathed/Saturn-PC/workflows/main/main?preview
             Changelog: https://github.com/${{ github.repository }}/commit/${{github.sha}}
