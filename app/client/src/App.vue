@@ -409,10 +409,10 @@ export default {
         let url = new URL(query);
 
         //Normal link
-        if (url.hostname == 'www.deezer.com' || url.hostname == 'deezer.com' || url.hostname == 'deezer.page.link') {
+        if (url.hostname == 'www.deezer.com' || url.hostname == 'deezer.com' || url.hostname == 'dzr.page.link') {
 
           //Share link
-          if (url.hostname == 'deezer.page.link') {
+          if (url.hostname == 'dzr.page.link') {
             let res = await this.$axios.get('/fullurl?url=' + encodeURIComponent(query));
             url = new URL(res.data.url);
           }

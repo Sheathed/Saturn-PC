@@ -26,6 +26,12 @@
                 <v-icon left>mdi-open-in-app</v-icon>
                 {{$t("Login using browser")}}
             </v-btn>
+
+            <h3>{{$t("Alternatively, log in using your credentials:")}}</h3>
+            <v-text-field :label='$t("Email")' v-model='email'>
+            </v-text-field>
+            <v-text-field :label='$t("Password")' v-model='password'>
+            </v-text-field>
     
             <h3 class='mt-4'>{{$t("...or paste your ARL/Token below:")}}</h3>
             <v-text-field :label='$t("ARL/Token")' v-model='arl'>
@@ -53,6 +59,8 @@
             return {
                 error: false,
                 arl: '',
+                email: '',
+                password: '',
                 showForm: false,
                 authorizing: false
             }
@@ -61,7 +69,41 @@
             async login() {
                 this.showForm = false;
                 this.authorizing = true;
+                let f = false;
     
+                if (this.email && this.password && this.email !== '' && this.password !== '') {
+                    // Login using email and password
+                    f = true;
+                    try {
+                        const res = await this.$axios.post('/directlogin', { email: this.email, password: this.password });
+                        this.arl = res.data.arl;
+                        this.$root.settings.arl = this.arl;
+
+                        await this.$axios.post('/authorize', {arl: res.data.arl});
+                        this.$root.authorized = true;
+                        if (this.$root.authorized) {
+                            //Save
+                            await this.$root.saveSettings();
+            
+                            //Load profile
+                            let res = await this.$axios.get('/profile');
+                            this.$root.profile = res.data;
+            
+                            //Auth rooms
+                            this.$rooms.setProfile(this.$root.profile);
+            
+                            this.$router.push('/home');
+                            //Cache library
+                            this.$root.cacheLibrary();
+                        }
+                
+                        this.authorizing = false;
+                    } catch (e) {
+                        this.error = true;
+                    }
+                }
+
+                if (f) return;
                 if (this.arl && this.arl != '') {
                     //Save arl
                     this.$root.settings.arl = this.arl;

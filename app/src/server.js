@@ -11,6 +11,7 @@ const { Settings } = require('./settings');
 const { Track, Album, Artist, Playlist, DeezerProfile, SearchResults, DeezerLibrary, DeezerPage, Lyrics } = require('./definitions');
 const { DownloadManager } = require('./downloads');
 const { Integrations } = require('./integrations');
+const { DeezerLogin, DeezerLoginException, CookieManager, md5Hex, Env } = require('./deezer_login');
 
 let settings;
 let deezer;
@@ -91,6 +92,32 @@ app.post('/authorize', async(req, res) => {
     }
 
     res.status(500).send('Invalid ARL / Free Account');
+});
+
+app.post('/directlogin', async (req, res) => {
+  const { email, password } = req.body;
+  if (!email || !password) return res.status(400).send('Invalid Credentials');
+
+  let arl;
+  try {
+    arl = await DeezerLogin.getArlByEmailAndPassword(email, password);
+
+    if (!arl || arl === '') {
+      logger.error('Direct login produced no ARL for email', { email });
+      return res.status(401).send('Invalid ARL / Login failed');
+    }
+
+    return res.status(200).send({ arl });
+  } catch (err) {
+    // If DeezerLoginException == friendly; otherwise treat as unexpected
+    if (err instanceof DeezerLoginException) {
+      logger.error('Login failed (DeezerLoginException)', { err: err.toString(), email });
+      return res.status(401).send(err.toString());
+    } else {
+      logger.error('Direct login unexpected error', { err: (err && err.toString) ? err.toString() : err, email });
+      return res.status(500).send('Internal Server Error');
+    }
+  }
 });
 
 //Get track by id

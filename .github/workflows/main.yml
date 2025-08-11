@@ -99,9 +99,21 @@ jobs:
           to: ${{ secrets.TELEGRAM_TO }}
           token: ${{ secrets.TELEGRAM_TOKEN }}
           message: |
-            ${{ github.actor }} added a new commit!
+            ⚠️ Saturn PC was updated!
+            Check out the Changelog to see what's new
             
-            Download: https://nightly.link/Sheathed/Saturn-PC/workflows/main/main?preview
-            Changelog: https://github.com/${{ github.repository }}/commit/${{github.sha}}
+            🔗 Download: https://nightly.link/Sheathed/Saturn-PC/workflows/main/main?preview
+            📋 Changelog: https://github.com/${{ github.repository }}/commit/${{github.sha}}
 
-            Please star the repository <3
+            ⭐ Please star the repository <3
+            Feel free to follow me on GitHub:
+            💖 https://github.com/Sheathed
+
+            Leave an issue if you find a bug or have a feature request:
+            ✨ https://github.com/Sheathed/Saturn-PC/issues
+
+            Join the Discord server for support and discussion:
+            👋 https://discord.com/invite/fttYFSHPCQ
+
+            ... or join the Telegram group:
+            💬 @SaturnDiscuss
