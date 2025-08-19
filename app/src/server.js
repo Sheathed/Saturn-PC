@@ -317,7 +317,7 @@ app.put('/library/:type', async(req, res) => {
 //PUT dislike track
 app.put('/dislike/:trackid', async(req, res) => {
     let trackid = req.params.trackid;
-    await deezer.callApi('favorite_dislike.add', { SNG_ID: trackid, TYPE: 'song' });
+    await deezer.callApi('favorite_dislike.add', { ID: trackid, TYPE: 'song' });
     res.sendStatus(200);
 });
 
