@@ -350,7 +350,7 @@ class DeezerAPI {
         // I am actually not entirely sure how to account for track token expiry
         // so I guess I'll look into it a bit more later on
 
-        if (quality != 1) {
+        if (quality != 1 || true === true) {
 
             var trackData = await this.callApi('song.getData', { sng_id: trackId });
 
