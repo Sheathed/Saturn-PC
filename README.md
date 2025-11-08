@@ -1,3 +1,5 @@
+# ⚠️⚠️⚠️ Deprecated, visit [the new repo](https://github.com/Sheathed/Saturn) for more information
+
 [![Node.js CI](https://github.com/Sheathed/Saturn-PC/actions/workflows/main.yml/badge.svg)](https://github.com/Sheathed/Saturn-PC/actions/workflows/main.yml)
 <sup> | [download](https://nightly.link/Sheathed/Saturn-PC/workflows/main/main?preview) </sup>
 
